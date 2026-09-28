@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Crownfall Minesweeper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="menu" class="panel menu">
+      <div class="brand-mark">◆</div>
+      <h1>CROWNFALL</h1>
+      <div class="brand-sub">MINESWEEPER</div>
+      <p class="subtitle">Пройди минное поле и не подорвись</p>
+
+      <div class="levels">
+        <button class="level selected" data-level="easy">
+          <span class="rank rank-gold">♜</span><span class="level-copy"><b>ЛЁГКИЙ</b><small>9 × 9 · 10 МИН</small></span>
+        </button>
+        <button class="level" data-level="medium">
+          <span class="rank rank-silver">✦</span><span class="level-copy"><b>СРЕДНИЙ</b><small>16 × 16 · 40 МИН</small></span>
+        </button>
+        <button class="level" data-level="hard">
+          <span class="rank rank-red">♛</span><span class="level-copy"><b>СЛОЖНЫЙ</b><small>30 × 16 · 99 МИН</small></span>
+        </button>
+      </div>
+
+      <button id="play" class="primary">В БОЙ</button>
+      <div class="best">🏆 Лучший результат: <span id="bestMenu">—</span></div>
+    </section>
+
+    <section id="game" class="panel game hidden">
+      <div class="ornament top-ornament"></div>
+      <header>
+        <button id="home" class="icon-btn" aria-label="В меню">⌂</button>
+        <div class="stat flag-stat">🚩 <span id="minesLeft">10</span></div>
+        <button id="restart" class="face" aria-label="Новая игра">⟳</button>
+        <div class="stat timer-stat">⏱ <span id="timer">000</span></div>
+        <button id="sound" class="icon-btn" aria-label="Звук">🔊</button>
+      </header>
+      <div id="levelTitle" class="level-title">ЛЁГКИЙ</div>
+      <div class="board-frame">
+        <div class="board-shell"><div id="board"></div></div>
+      </div>
+      <p class="help">Касание — открыть · Долгое нажатие — 🚩</p>
+    </section>
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-card">
+        <div id="resultEmoji" class="result-emoji">🏆</div>
+        <h2 id="resultTitle">Победа!</h2>
+        <p id="resultText"></p>
+        <button id="again" class="primary">ЕЩЁ БОЙ</button>
+        <button id="toMenu" class="secondary">В МЕНЮ</button>
+      </div>
+    </div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
