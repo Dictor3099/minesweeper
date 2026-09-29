@@ -18,3 +18,17 @@ body.enchanted { background-image:linear-gradient(#0004,#0007),url("enchanted-bg
 body.winter { background-image:linear-gradient(#0004,#0007),url("winter-bg.png") !important; }
 body.farm { background-image:linear-gradient(#0004,#0007),url("farm-bg.png") !important; }
 @media (max-width:600px){ body { background-position:center top !important; min-height:100dvh; } }
+
+/* Settings: vibration toggle */
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:18px 0 14px;padding:14px;background:#160e0bd9;border:1px solid #87582e;border-radius:10px}
+.setting-row b,.setting-row small{display:block}.setting-row small{margin-top:4px;color:#d6bd92;font:12px Arial}
+.switch{position:relative;width:52px;height:30px;flex:0 0 auto}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;inset:0;background:#4b4037;border-radius:30px;cursor:pointer;transition:.2s}.slider:before{content:"";position:absolute;width:24px;height:24px;left:3px;top:3px;background:#eee;border-radius:50%;transition:.2s}.switch input:checked+.slider{background:#b94b24}.switch input:checked+.slider:before{transform:translateX(22px)}
+
+/* Every theme is a physically separate file. No sprite sheet / collage positioning. */
+body{background-size:cover!important;background-repeat:no-repeat!important;background-position:center center!important;background-attachment:scroll!important}
+body.red{background-image:linear-gradient(#0004,#0007),url("red-bg.png")!important}
+body.blast{background-image:linear-gradient(#0004,#0007),url("blast-bg.png")!important}
+body.enchanted{background-image:linear-gradient(#0004,#0007),url("enchanted-bg.png")!important}
+body.winter{background-image:linear-gradient(#0004,#0007),url("winter-bg.png")!important}
+body.farm{background-image:linear-gradient(#0004,#0007),url("farm-bg.png")!important}
+.cell,#board,#game,.panel,button{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
