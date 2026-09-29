@@ -32,3 +32,31 @@ body.enchanted{background-image:linear-gradient(#0004,#0007),url("enchanted-bg.p
 body.winter{background-image:linear-gradient(#0004,#0007),url("winter-bg.png")!important}
 body.farm{background-image:linear-gradient(#0004,#0007),url("farm-bg.png")!important}
 .cell,#board,#game,.panel,button{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+
+
+/* ===== Separate backgrounds for PHONE and PC =====
+   Phone/tablet uses *-mobile.png.
+   Desktop uses *-desktop.png.
+*/
+body{
+  background-repeat:no-repeat!important;
+  background-position:center center!important;
+  background-size:cover!important;
+  background-attachment:scroll!important;
+}
+
+/* MOBILE FIRST */
+body.red{background-image:linear-gradient(#0004,#0007),url("red-mobile.png")!important}
+body.blast{background-image:linear-gradient(#0004,#0007),url("blast-mobile.png")!important}
+body.enchanted{background-image:linear-gradient(#0004,#0007),url("enchanted-mobile.png")!important}
+body.winter{background-image:linear-gradient(#0004,#0007),url("winter-mobile.png")!important}
+body.farm{background-image:linear-gradient(#0004,#0007),url("farm-mobile.png")!important}
+
+/* PC / laptop */
+@media (min-width: 769px) and (pointer:fine){
+  body.red{background-image:linear-gradient(#0004,#0007),url("red-desktop.png")!important}
+  body.blast{background-image:linear-gradient(#0004,#0007),url("blast-desktop.png")!important}
+  body.enchanted{background-image:linear-gradient(#0004,#0007),url("enchanted-desktop.png")!important}
+  body.winter{background-image:linear-gradient(#0004,#0007),url("winter-desktop.png")!important}
+  body.farm{background-image:linear-gradient(#0004,#0007),url("farm-desktop.png")!important}
+}
