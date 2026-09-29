@@ -60,3 +60,18 @@ body.farm{background-image:linear-gradient(#0004,#0007),url("farm-mobile.png")!i
   body.winter{background-image:linear-gradient(#0004,#0007),url("winter-desktop.png")!important}
   body.farm{background-image:linear-gradient(#0004,#0007),url("farm-desktop.png")!important}
 }
+
+/* Theme-matched cells */
+.cell{position:relative;overflow:hidden;text-shadow:0 1px 2px #000;transition:transform .06s ease,filter .12s ease;-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+.cell:active{transform:scale(.96)}
+body.red .cell{background:linear-gradient(145deg,#655a43,#39372c);border-color:#817458;box-shadow:inset 0 2px #8a7a58,inset 0 -3px #26271e}
+body.red .cell.open{background:linear-gradient(145deg,#a69b78,#746c55)}
+body.blast .cell{background:linear-gradient(145deg,#41362f,#171515);border-color:#6f3c27;box-shadow:inset 0 1px #8c4b2b,inset 0 -2px #090808,0 0 3px #ff4a1733}
+body.blast .cell.open{background:linear-gradient(145deg,#6c5141,#3d302a)}
+body.enchanted .cell{background:linear-gradient(145deg,#4b3a59,#251d32);border-color:#73548b;box-shadow:inset 0 1px #8969a0,inset 0 -2px #171020,0 0 4px #9d45ff33}
+body.enchanted .cell.open{background:linear-gradient(145deg,#796889,#51445e)}
+body.winter .cell{background:linear-gradient(145deg,#6c94ad,#385c75);border-color:#9bc5db;box-shadow:inset 0 2px #c7e7f3,inset 0 -3px #29475b}
+body.winter .cell.open{background:linear-gradient(145deg,#c5dce7,#89acbd)}
+body.farm .cell{background:linear-gradient(90deg,#76502d,#9b6a35 45%,#684526);border-color:#b18147;box-shadow:inset 0 2px #bd8a4d,inset 0 -3px #4d311d}
+body.farm .cell.open{background:linear-gradient(145deg,#c39a5a,#8e6b3c)}
+.cell.mine{background:#7b2018!important}
