@@ -75,3 +75,76 @@ body.winter .cell.open{background:linear-gradient(145deg,#c5dce7,#89acbd)}
 body.farm .cell{background:linear-gradient(90deg,#76502d,#9b6a35 45%,#684526);border-color:#b18147;box-shadow:inset 0 2px #bd8a4d,inset 0 -3px #4d311d}
 body.farm .cell.open{background:linear-gradient(145deg,#c39a5a,#8e6b3c)}
 .cell.mine{background:#7b2018!important}
+
+
+/* ===== V2: detailed theme cells, pause, animations and ambient effects ===== */
+.game-actions{display:flex;gap:6px}
+.game-actions button{padding:8px 11px;min-width:42px}
+.pause-screen{position:fixed;inset:0;z-index:40;background:#050403ed;display:grid;place-items:center}
+.pause-screen>div{width:min(88vw,360px);padding:25px;text-align:center;background:#21140ef5;border:2px solid #a06a35;border-radius:16px;box-shadow:0 15px 50px #000}
+.board-paused{visibility:hidden}
+
+/* richer cells based on the approved visualization */
+body.red .cell{
+ background:
+ radial-gradient(circle at 18% 22%,#89945a55 0 10%,transparent 11%),
+ linear-gradient(32deg,transparent 45%,#24251c 47% 50%,transparent 52%),
+ linear-gradient(145deg,#766c50,#37382c);
+ border-color:#8e835d;box-shadow:inset 0 2px #a19772,inset 0 -3px #25271f,0 1px 2px #0008
+}
+body.red .cell.open{background:radial-gradient(circle at 70% 20%,#c0b58955,transparent 35%),linear-gradient(145deg,#a89b74,#716950)}
+body.blast .cell{
+ background:
+ linear-gradient(128deg,transparent 42%,#ff6a16aa 44%,#ffb02e 45%,transparent 47%),
+ linear-gradient(35deg,transparent 63%,#ff4d12aa 65%,transparent 68%),
+ radial-gradient(circle at 35% 35%,#514239,#171515 70%);
+ border-color:#743d29;box-shadow:inset 0 1px #8c4b2b,inset 0 -3px #080707,0 0 5px #ff4a1744
+}
+body.blast .cell.open{background:linear-gradient(145deg,#755543,#3e3029)}
+body.enchanted .cell{
+ background:
+ radial-gradient(circle at 78% 20%,#d177ff88 0 5%,transparent 7%),
+ linear-gradient(120deg,transparent 20%,#8e5bb455 22%,transparent 25%),
+ linear-gradient(145deg,#594367,#241c31);
+ border-color:#8661a0;box-shadow:inset 0 1px #a27bbb,inset 0 -3px #160f20,0 0 6px #b148ff55
+}
+body.enchanted .cell.open{background:radial-gradient(circle at 25% 25%,#bd8ee744,transparent 32%),linear-gradient(145deg,#826f92,#51445e)}
+body.winter .cell{
+ background:
+ linear-gradient(165deg,#e7f7ff 0 12%,transparent 14%),
+ linear-gradient(35deg,transparent 45%,#c9efff66 47%,transparent 50%),
+ linear-gradient(145deg,#79a9c5,#345a72);
+ border-color:#b3d9ea;box-shadow:inset 0 2px #e9f8ff,inset 0 -3px #29475b,0 1px 3px #001a2a99
+}
+body.winter .cell.open{background:linear-gradient(145deg,#d5e8f0,#8eafbe)}
+body.farm .cell{
+ background:
+ radial-gradient(circle at 12% 15%,#c79b59 0 4%,#54351f 5% 8%,transparent 9%),
+ radial-gradient(circle at 88% 84%,#c79b59 0 4%,#54351f 5% 8%,transparent 9%),
+ repeating-linear-gradient(0deg,#76502d 0 8px,#8e6033 9px 16px,#684526 17px 24px);
+ border-color:#bd8b4d;box-shadow:inset 0 2px #c99757,inset 0 -3px #4d311d,0 1px 2px #0008
+}
+body.farm .cell.open{background:radial-gradient(circle at 30% 30%,#d0a86a55,transparent 25%),linear-gradient(145deg,#b98c4f,#785a36)}
+.cell.flag{filter:brightness(1.12)}
+.cell.mine{background:radial-gradient(circle,#a93122,#4a100d 72%)!important}
+.cell.exploding{z-index:5;animation:cellExplosion .42s ease-out}
+@keyframes cellExplosion{0%{transform:scale(1)}35%{transform:scale(1.55);filter:brightness(2.7)}100%{transform:scale(.9);filter:brightness(.8)}}
+.lose-shake{animation:boardShake .36s linear}
+@keyframes boardShake{20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.win-flash{animation:winGlow .7s ease}
+@keyframes winGlow{50%{filter:brightness(1.55);box-shadow:0 0 35px #ffe488aa}}
+
+/* ambient theme effects: visual only, never intercept taps */
+#ambient{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+main,.modal,.pause-screen{position:relative;z-index:2}
+#ambient i{position:absolute;top:-8%;opacity:.55;animation:ambientFall linear infinite}
+#ambient i:before{display:block}
+#ambient.red i:before{content:"🍂";font-size:11px}
+#ambient.blast i:before{content:"•";font:28px Arial;color:#ff7b22;text-shadow:0 0 8px #ff3b00}
+#ambient.enchanted i:before{content:"✦";font-size:13px;color:#d89cff;text-shadow:0 0 8px #a533ff}
+#ambient.winter i:before{content:"❄";font-size:14px;color:#fff;text-shadow:0 0 5px #bde9ff}
+#ambient.farm i:before{content:"◆";font-size:10px;color:#17120f;transform:rotate(45deg)}
+@keyframes ambientFall{from{transform:translate3d(0,-10vh,0) rotate(0)}to{transform:translate3d(var(--drift),112vh,0) rotate(320deg)}}
+.victory-particle{position:absolute;z-index:5;color:#ffe68a;text-shadow:0 0 8px #ff8a00;font-size:20px;animation:victoryFly 1.2s ease-out forwards}
+@keyframes victoryFly{to{transform:translate(var(--x),var(--y)) rotate(300deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){#ambient i,.victory-particle,.cell.exploding,.lose-shake,.win-flash{animation:none!important}}
